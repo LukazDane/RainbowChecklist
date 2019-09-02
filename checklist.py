@@ -40,6 +40,8 @@ def test():
     print(read(0))
     list_all_items()
     mark_completed(0)
+    user_value = user_input("Please Enter a value: ")
+    print(user_value)
 # list all items
 
 
@@ -54,18 +56,18 @@ def list_all_items():
 
 
 def mark_completed(index):
-    checklist[int(index)] = "√" + checklist[index]
+    checklist[int(index)] = "√ " + checklist[index]
 
 
 def select(function_code):
     # Create item
     if function_code == "C":
-        input_item = user_input("Input item:")
+        input_item = user_input("Input item: ")
         create(input_item)
 
     # Read item
     elif function_code == "R":
-        item_index = user_input("Index Number?")
+        item_index = user_input("Index Number? ")
 
         # Remember that item_index must actually exist or our program will crash.
         read(item_index)
@@ -73,7 +75,9 @@ def select(function_code):
     # Print all items
     elif function_code == "P":
         list_all_items()
-
+    elif function_code == "Q":
+        # This is where we want to stop our loop
+        return False
     # Catch all
     else:
         print("Unknown Option")
@@ -87,3 +91,9 @@ def user_input(prompt):
 
 
 test()
+
+running = True
+while running:
+    selection = user_input(
+        "Press C to add to list, R to Read from list and P to display list: ")
+    select(selection)
