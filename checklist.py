@@ -39,14 +39,14 @@ def test():
 
     print(read(0))
     list_all_items()
-
+    mark_completed(0)
 # list all items
 
 
 def list_all_items():
     index = 0
     for list_item in checklist:
-        # print(str(index) + list_item)
+        #print(str(index) + list_item)
         print("{} {}".format(index, list_item))
         index += 1
 
