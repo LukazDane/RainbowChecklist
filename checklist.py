@@ -1,29 +1,44 @@
 checklist = list()
-checklist.append('Blue')
-print(checklist)
-checklist.append('Orange')
-print(checklist)
 
+# create
 
-# Create
 
 def create(item):
     checklist.append(item)
 
-# Read
+# read
 
 
 def read(index):
     return checklist[index]
 
-# UPDATE
+# update
 
 
 def update(index, item):
     checklist[index] = item
 
-# DESTROY
+# delete
 
 
 def destroy(index):
     checklist.pop(index)
+
+# testing
+
+
+def test():
+    create("purple sox")
+    create("red cloak")
+
+    print(read(0))
+    # print(read(1))
+
+    update(0, "purple socks")
+    destroy(1)
+
+    print(read(0))
+    # print(read(1))
+
+
+test()
