@@ -46,8 +46,15 @@ def test():
 def list_all_items():
     index = 0
     for list_item in checklist:
-        print(str(index) + list_item)
+        # print(str(index) + list_item)
+        print("{} {}".format(index, list_item))
         index += 1
+
+# stretch challange: Mark as completed Hint: add character to checklist
+
+
+def mark_completed(index):
+    checklist[int(index)] = "√" + checklist[index]
 
 
 test()
