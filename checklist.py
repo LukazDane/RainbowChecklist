@@ -4,8 +4,8 @@ print(checklist)
 checklist.append('Orange')
 print(checklist)
 
-# Create
 
+# Create
 
 def create(item):
     checklist.append(item)
@@ -14,16 +14,10 @@ def create(item):
 
 
 def read(index):
-    print(checklist[index])
+    return checklist[index]
 
-# Update
+# UPDATE
 
 
 def update(index, item):
-    checklist[int(index)] = str(item)
-
-# Destroy
-
-
-def destroy(index):
-    checklist.pop(int(index))
+    checklist[index] = item
