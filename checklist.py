@@ -1,3 +1,11 @@
+# links that helped me
+# https://www.journaldev.com/23674/python-remove-character-from-string
+# https://stackoverflow.com/questions/11520492/difference-between-del-remove-and-pop-on-lists/11520540
+# https://www.geeksforgeeks.org/print-colors-python-terminal/
+
+from colorama import Fore, Back, Style
+
+
 checklist = list()
 
 # create
@@ -49,19 +57,62 @@ def list_all_items():
     index = 0
     for list_item in checklist:
         #print(str(index) + list_item)
-        print("{} {}".format(index, list_item))
+        print(Fore.LIGHTYELLOW_EX + "{} {}".format(index, list_item))
         index += 1
 
-# stretch challange: Mark as completed Hint: add character to checklist
+# Stretch challange - mark complete (append check mark)
 
 
 def mark_completed(index):
-    checklist[int(index)] = "√ " + checklist[index]
+    checklist[int(index)] = "√ " + checklist[int(index)]
+
+
+def unmark_completed(index):
+    checklist[int(index)] = (checklist[int(index)])[-0]
+    # del checklist[int(index)]
+    # deletes entire item -fix later
+
+
+def select(input_code):
+    # Create
+    if input_code == "C" or input_code == "c":
+        item_index = user_input("Create Item: ")
+        create(item_index)
+
+    # Read
+    # Crashes if item does not exist
+    elif input_code == "R" or input_code == "r":
+        item_index = user_input(Fore.LIGHTMAGENTA_EX + "Index Number? ")
+        read(item_index)
+        # mark as completed
+    elif input_code == "A" or input_code == "a":
+        item_index = user_input(Fore.BLUE + "Mark as completed[index]: ")
+        mark_completed(item_index)
+    elif input_code == "U" or input_code == "u":
+        item_index = user_input(Fore.BLUE + "unMark as completed[index]: ")
+        unmark_completed(item_index)
+    # List all items
+    elif input_code == "P" or input_code == "p":
+        list_all_items()
+
+    elif input_code == "Q" or input_code == "q":
+        # Stop
+        # D oes not break out of code - fix later
+        return False
+    else:
+        print(Fore.RED + "Unknown Option")
+    return True
+
+
+def user_input(prompt):
+
+    user_input = input(prompt)
+    return user_input
 
 
 # test()
 running = True
 while running:
-    selection = user_input(
-        "Press C to add to list, R to Read from list and P to display list: ")
+    selection = user_input(Fore.GREEN +
+                           "Press C to add to list, R to Read from list and P to display list, A to mark as complete, U to unmark: ")
     select(selection)
